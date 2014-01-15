@@ -1,0 +1,67 @@
+<% provide(:title, @user.name) %>
+
+ <!--Body Sidebar content-->
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+       <div class="hero-unit4" > 
+      <!--Sidebar content  for Events-->
+       <section>
+     <%= image_tag @user.avatar.url(:medium) %>    
+              <h4><%= @user.name %><h4>
+       </section>
+      <section>
+      <%= render 'shared/stats' %>
+    </section>
+    <section>
+        <%= render 'follow_form' if signed_in? %>
+       </section> 
+      </div > 
+    </div>
+        <div class="span10">
+            <div class="hero-unit3 " >  
+               <!--Body content--> 
+             
+      <%= image_tag @user.headerbackground.url(:large) %>   <br/> 
+      
+        </div>
+        	<div class="hero-unit2 container-fluid" >
+          <div class="tabbable"> 
+             <ul class="nav nav-pills">
+         <li class="active"><a href="#tab1" data-toggle="tab">My Pics</a></li>
+    <li><a href="#tab2" data-toggle="tab">My Songs</a></li>
+    <li><a href="#tab3" data-toggle="tab">My Videos</a></li>
+    <li><a href="#tab4" data-toggle="tab">My Yoddles</a></li>
+    </ul> 
+    <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+       <div id="yoddles">
+     <%= render @user.yoddles.order("created_at desc").page(params[:page]).per_page(20) %>
+      <%= will_paginate @yoddles %>
+    </div>
+    </div>
+    <div class="tab-pane" id="tab2">
+      <p>My Songs COMING SOON</p>   <!--Body content-->     
+    </div>
+    <div class="tab-pane" id="tab3">
+      <p>My Videos COMING SOON</p>   <!--Body content-->     
+    </div>
+    <div class="tab-pane" id="tab4">
+      <div id="yoddles">
+    <% if @user.microposts.any? %>
+      <h3>My Yoddles (<%= @user.microposts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+      <%= will_paginate @microposts %>
+    <% end %>
+  </div> <!--Body content-->     
+    </div>
+  </div>
+</div>
+</div>
+</div>
+  </div>
+</div>
+
+

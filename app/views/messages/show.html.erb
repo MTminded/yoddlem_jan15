@@ -1,0 +1,37 @@
+<table>
+  <tr>
+    <th>Message From:</th>
+    <th>Subject:</th>
+    <th>Date:</th>
+  </tr>
+
+  <tr>
+    <td><%= @message.sender.name %></td>
+    <td><%= @message.subject %></td>
+    <td><%= @message.created_at.strftime("%b.%d.%Y %l:%M %P") %></td>
+  </tr>
+</table>
+
+
+
+      <p><%= @message.body %></p>
+      <%= @message.created_at.strftime("%b.%d.%Y %l:%M %P") %>
+
+<% if @message.replied_messages.present? %>
+  <% @message.replied_messages.each do |m| %>
+        <p><%= m.body %></p>
+        <%= m.created_at.strftime("%b.%d.%Y %l:%M %P") %>
+ <% end %>
+<% end %>
+
+<br/>
+<h2>Reply Now</h2>
+<p>
+  <%= form_for [@user, @new_message ||= Message.new], :url => reply_user_message_path(@user.id, @message.id) do |f| %>
+    <%= f.hidden_field :replied_to_message_id %>
+    <%= f.text_area :body, :size => "40x3" %><br/>
+    <%= f.submit "Send" %>
+  <% end %>
+</p>
+
+<%= link_to "Back to Inbox", inbox_user_messages_path(current_user) %>

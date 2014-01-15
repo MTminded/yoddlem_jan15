@@ -1,0 +1,326 @@
+/*$baseFontFamily: Oxygen;
+@import url(http//:fonts.gooleapis.com/css?family=Oxygen); */
+
+@import 'social-share-button';
+
+/* mixins, variables, etc. */
+
+$grayMediumLight: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
+/* miscellaneous */
+.ui360,
+.sm2-360ui {
+  /* size of the container for the circle, etc. */
+  width:50px;
+  height:50px;
+}
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+
+$navbarBackgroundHighlight: white;
+$navbarBackground: white;
+$btnPrimaryBackground: gray;
+$navbarLinkBackgroundHover: grey transparent;
+$navbarLinkBackgroundActive:  darken 5%;
+
+
+
+/* Header and Footer */
+
+@import 'bootstrap';
+
+body{
+    padding-top: 60px;
+}
+
+@import 'bootstrap-responsive';
+
+.navbar-inner{
+    @include box-shadow(none !important);
+    border: 0;
+}
+
+/* mixins, variables, etc. */
+
+$grayMediumLight: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+.footer{
+    margin-top: 50px;
+    color: $grayLight;
+    a{
+        color: $gray;
+    }
+}
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+   color: #aaaaaa;
+}
+
+h1 {
+   font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+
+  
+}
+
+h2 {
+  font-size: 1.7em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+ 
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+   color: #aaaaaa;
+}
+
+/* Hompage hero */
+
+.hero-unit {
+  Background: white;
+BackgroundAccent: #f8f8e8;
+
+    margin: 50px;    
+    padding: 5px;
+    font-size: 12px;
+     color: #aaaaaa;
+    line-height: 1.4em;
+    float: left;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px #444;
+    width: 920px;
+    height: 350px;
+    float: none;
+        background: none;
+        border:none;
+        border-bottom:1px solid none;   
+        padding:12px 10px 12px 10px;
+  box-shadow: inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);      
+}
+/* universal */
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+
+
+.clear { /* Use this class between rows of content when you use columns */
+        clear: both; /*no floating elements allowed on the left or the right side*/
+        display: block;
+        overflow: hidden;
+        visibility: hidden; /*nothing displays, just resets the layout*/
+        width: 0px;
+        height: 0px;
+}
+
+
+/* Required for jQuery Masonry */
+
+.box {
+    margin: 5px;
+    padding: 5px;
+    font-size: 11px;
+    line-height: 1.4em;
+    float: left;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px #444;
+    width: 214px;
+}
+
+.box img {
+    width: 100%;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.description {
+    margin: 15px 0 10px;
+}
+
+.yoddle_Comment { 
+  margin: 5px;
+    padding: 5px;
+    font-size: 12px;
+    line-height: 1.4em;
+    float: left;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px #444;
+    width: 225px;
+}
+
+.yoddle_show {
+padding: 5px;
+-webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px #444;
+  filter: alpha(opacity=90);    
+opacity: .9;
+}
+
+.hero-unit2 {
+  Background: white;
+BackgroundAccent: #f8f8e8;
+
+    margin: 25px;    
+    padding: 5px;
+    font-size: 12px;
+     color: #aaaaaa;
+    line-height: 1.4em;
+    float: left;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px #444;
+    width: 720px;
+    height: 2560px;
+    float: none;
+        background: none;
+        border:none;
+        border-bottom:1px solid none;   
+        padding:12px 10px 12px 10px;
+  box-shadow: inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);      
+}
+
+.hero-unit3 {
+  Background: white;
+BackgroundAccent: #f8f8e8;
+
+    margin: 5px;    
+    padding: 5px;
+    font-size: 12px;
+     color: #aaaaaa;
+    line-height: 1.4em;
+    float: left;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px #444;
+    width: 760px;
+    height: 420px;
+    float: none;
+        background: none;
+        border:none;
+        border-bottom:1px solid none;   
+        padding:12px 10px 12px 10px;
+  box-shadow: inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);      
+}
+
+background-image{
+width: 760px;
+height: 250px;
+}
+/* microposts */
+
+.microposts {
+  list-style: none;
+  margin: 10px 0 0 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+.content {
+  display: block;
+}
+.timestamp {
+  color: $grayLight;
+}
+.avatar {
+  float: left;
+  margin-right: 10px;
+}
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+
+/* sidebar */
+
+.stats {
+  overflow: auto;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $grayLighter;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: $blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+}

@@ -1,0 +1,31 @@
+ <div class ="box">
+
+    <%= link_to (image_tag yoddle.image(:medium)), yoddle %>
+    <p class="description"> 
+    <h6><strong> <%= yoddle.title %></h6></strong>
+     </p>
+
+    <p class="description">
+    <%= yoddle.content.html_safe %>
+    </p>
+
+     <p>
+       <strong>
+            Yoddled by <%= link_to yoddle.user.name, yoddle.user %>
+        </strong>  
+    </p>
+     <p class="description">
+    <%= yoddle.url %>
+    </p>
+
+     <p>
+    <%= link_to 'Show', yoddle %> 
+
+    <% if current_user == yoddle.user %>
+     | <%= link_to 'Edit', edit_yoddle_path(yoddle) %> |
+    <%= link_to 'Destroy', yoddle, method: :delete, data: { confirm: 'Are you sure?' } %>
+     </p>
+    <% end %>
+  </div>
+  
+   

@@ -1,0 +1,19 @@
+<%= tinymce_assets %>
+<%= simple_form_for(@yoddle, html: {class: "form-horizontal"}) do |f| %>
+  <%= f.error_notification %>
+  <%= f.full_error :image_file_size, class: "alert alert-error" %>
+  <%= f.full_error :image_content_type, class: "alert alert-error" %>
+  
+ 		<%= f.input :image, label: "Upload an image" %>
+    <%= f.input :image_remote_url, label: "or enter a URL" %>
+    <%= f.input :title, as: :text, input_html: {rows: "1"} %>
+    <%= f.input :url, as: :string, input_html: {rows: "1"} %>
+    <h6>Insert Yoddle Text<h6>
+    <h6>Please do not copy and paste word or other processing files; <br/> your yoddle will break<h6>
+    <%= f.text_area :content, :class => "tinymce", :rows => 10, :cols => 25 %>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+  <%= tinymce %>
+<% end %>

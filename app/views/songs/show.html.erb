@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @song.title %>
+</p>
+
+<p>
+  <b>Mp3:</b>
+
+  <div id="sm2-visualization" class="sm2-inline-list">    
+    <div class="ui360 ui360-vis">
+      <a href="<%= @song.mp3 %>" class="exclude button-exclude inline-exclude" style="position:absolute;color:#ffffff"></a>
+    </div>
+  </div>
+
+
+<p>
+  <b>Genre:</b>
+  <%= @song.genre %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @song.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_song_path(@song) %> |
+<%= link_to 'Back', songs_path %>

@@ -1,0 +1,41 @@
+<% provide(:title, 'Welcome') %>
+<% if signed_in? %>
+  <div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+        <%= render 'shared/stats' %>
+      </section>
+      <section>
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+    <div class="span8">
+      <h3>Yoddle Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+  </div>  
+<% else %>
+
+   <div class="container-narrow">
+<div class="hero-unit"> 
+   <h1>Welcome to Yoddlem</h1>       
+      
+   <div class="home picture">
+      
+       <p>
+           <%= link_to "Sign Up Now!", new_user_registration_path, class: "btn btn-large btn "   %>
+        </p>
+      </div>
+      </div>
+      
+    <% end %>   
+    
+
+
+
+
+ 

@@ -1,0 +1,107 @@
+<h1><%= "#{current_user.name}'s" %> Inbox</h1>
+
+            <h1>Messages</h1>
+            
+
+             <h2>Inbox<h2>
+
+          
+                <%= content_tag :h2, "Inbox" %>
+                <%= link_to "Create New Message", new_user_message_path(@user) %>
+                <% if @received_messages.present? %>
+                
+
+
+
+                <table>
+                  <tr>
+                    <th>Message From:</th>
+                    <th>Subject:</th>
+                    <th></th>
+                  </tr>
+
+                  
+                  
+                
+                  <% @received_messages.each_with_index do |message, index| %>
+                  <tr>
+                    <td>
+                    <% if message.receiver == current_user %>
+                     <% link_content = "#{message.sender.name}" %>
+                      <% if message.replied_messages.present? %>
+                        <% if message.replied_messages.first.sender == current_user %>
+                          <%= "*" %><% link_content += ", me (#{message.replied_messages.count + 1})" %>
+                           <%= link_to 'Remove', user_message_path(@user, message), confirm: 'Are you sure?', method: :delete %>
+                        <% end %>
+                      <% end %>
+                    
+                    <% elsif message.sender == current_user %>
+                      <% link_content = "Me" %>
+                      <% if message.replied_messages.present? %>
+                        <% if message.replied_messages.first.sender != current_user %>
+                          <% link_content += ", #{message.replied_messages.first.sender.name} (#{message.replied_messages.count + 1})" %>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+
+                    <%= link_to "#{link_content}", user_message_path(current_user, message)  %>
+
+                    <%= content_tag(:span, "new", class: "msg_new")  if message.unread? %>
+                    </td>
+
+                    <td><% if message.receiver == current_user %>
+                     <% link_content = "#{message.sender.name}" %>
+                      <% if message.replied_messages.present? %>
+                        <% if message.replied_messages.first.sender == current_user %>
+                          <%= "*" %><% link_content += ", me (#{message.replied_messages.count + 1})" %>
+                        <% end %>
+                      <% end %>
+                    
+                    <% elsif message.sender == current_user %>
+                      <% link_content = "Me" %>
+                      <% if message.replied_messages.present? %>
+                        <% if message.replied_messages.first.sender != current_user %>
+                          <% link_content += ", #{message.replied_messages.first.sender.name} (#{message.replied_messages.count + 1})" %>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+
+                    <%= link_to "#{message.subject}", user_message_path(current_user, message)  %>
+
+                  </td>
+                   <td><%= link_to 'X', user_message_path(@user, message), confirm: 'Are you sure?', method: :delete %></td>
+                </tr> 
+                  <% end %>
+                <% else %>
+                  No received messages.
+                </tr> 
+                <% end %>   
+                        
+                </table>
+            </div><!--end tab1-->
+            
+                <h2>Sent Messages:</h2>
+              <table>
+               <tr>
+                  <th>Message to:</th>
+                  <th>Subject:</th>
+                  <th></th>
+                </tr>
+
+                
+               
+              <% if @sent_messages.present? %>
+                  <% @sent_messages.each_with_index do |message, index| %>
+                  <tr>
+                     <td>
+                    <%= link_to "#{message.receiver.name}", user_message_path(current_user, message)  %></td>
+                    <td><%= link_to "#{message.subject} #{" (#{message.replied_messages.count + 1})" if message.replied_messages.present?}", user_message_path(current_user, message)  %></td>
+                 <td><%= link_to 'X', user_message_path(@user, message), confirm: 'Are you sure?', method: :delete %></td>
+                  <% end %>
+                 
+                <% else %>
+                  No sent messages.
+                </tr>
+              <% end %>
+                
+              </table>

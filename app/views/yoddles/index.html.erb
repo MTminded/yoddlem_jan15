@@ -1,0 +1,8 @@
+<% provide(:title, "Listing Yoddles") %> 
+
+<div id="yoddles">
+  <%= render @yoddles %>
+</div>
+
+<%= link_to 'New Yoddle', new_yoddle_path, class:'btn' %>
+<%= will_paginate @yoddles %>
